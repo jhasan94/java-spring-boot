@@ -19,8 +19,8 @@ public class PinwareUserController {
     }
 
     @GetMapping("/user")
-    public List<PinwareUser> getUser(){
-        return pinwareUserServices.getUser();
+    public List<PinwareUser> getUser(@RequestParam(required = false) String country) {
+        return pinwareUserServices.getUser(country);
     }
 
     @PostMapping("/addUser")

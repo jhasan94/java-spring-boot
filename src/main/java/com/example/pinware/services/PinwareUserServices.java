@@ -17,8 +17,12 @@ public class PinwareUserServices {
     public PinwareUserServices(PinwareRepository pinwareRepository) {
         this.pinwareRepository = pinwareRepository;
     }
-    public List<PinwareUser> getUser(){
-        return pinwareRepository.findAll();
+    public List<PinwareUser> getUser(String country){
+        if(country == null){
+            return pinwareRepository.findAll();
+        }
+        return pinwareRepository.findAllByCountry(country);
+
     }
 
     public void addNewUser(PinwareUser pinwareUser) {
