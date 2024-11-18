@@ -20,12 +20,14 @@ public class PinwareConfig {
                     "jahid",
                     "male",
                     "jahid@gmail.com",
+                    "kw",
                     LocalDate.of(2003, Month.JANUARY,11)
             );
             PinwareUser hasan = new PinwareUser(
                     "hasan",
                     "male",
                     "hasan@gmail.com",
+                    "bd",
                     LocalDate.of(2001, Month.JANUARY,11)
             );
             repository.saveAll(
