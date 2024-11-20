@@ -1,6 +1,8 @@
 package com.example.pinware.services;
 
+import com.example.pinware.model.Country;
 import com.example.pinware.model.PinwareUser;
+import com.example.pinware.repository.CountryRepository;
 import com.example.pinware.repository.PinwareRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +14,12 @@ import java.util.Optional;
 @Service
 public class PinwareUserServices {
     private  final PinwareRepository pinwareRepository;
+    private final CountryRepository countryRepository;
 
     @Autowired
-    public PinwareUserServices(PinwareRepository pinwareRepository) {
+    public PinwareUserServices(PinwareRepository pinwareRepository, CountryRepository countryRepository) {
         this.pinwareRepository = pinwareRepository;
+        this.countryRepository = countryRepository;
     }
     public List<PinwareUser> getUser(String country){
         if(country == null){
@@ -58,5 +62,9 @@ public class PinwareUserServices {
         if(email != null && !email.isEmpty() && !email.equals(pinwareUser.getEmail())){
             pinwareUser.setEmail(email);
         }
+    }
+
+    public List<Country> getCountries() {
+        return  countryRepository.findAll();
     }
 }

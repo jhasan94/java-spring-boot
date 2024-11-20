@@ -1,5 +1,6 @@
 package com.example.pinware.controller;
 
+import com.example.pinware.model.Country;
 import com.example.pinware.model.PinwareUser;
 import com.example.pinware.services.PinwareUserServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class PinwareUserController {
     @GetMapping("/user")
     public List<PinwareUser> getUser(@RequestParam(required = false) String country) {
         return pinwareUserServices.getUser(country);
+    }
+
+    @GetMapping("/countries")
+    public List<Country> getCountries() {
+        return  pinwareUserServices.getCountries();
     }
 
     @PostMapping("/addUser")
