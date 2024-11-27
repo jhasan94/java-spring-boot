@@ -13,13 +13,8 @@ import lombok.Setter;
 public class Country {
 
     @Id
-    @SequenceGenerator(
-            name = "country_sequence",
-            sequenceName = "country_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+            strategy = GenerationType.AUTO,
             generator = "country_sequence"
     )
     private Long id;

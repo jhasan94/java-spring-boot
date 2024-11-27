@@ -67,4 +67,18 @@ public class PinwareUserServices {
     public List<Country> getCountries() {
         return  countryRepository.findAll();
     }
+
+    public void addNewCountry(Country country) {
+        System.out.println(country);
+        countryRepository.save(country);
+    }
+
+    public void updateCountry(Country country) {
+
+        boolean exist = pinwareRepository.existsById(country.getId());
+        if(!exist){
+            throw new IllegalStateException("Country id "+ country.getId() +" does not exist");
+        }
+        countryRepository.save(country);
+    }
 }

@@ -29,6 +29,16 @@ public class PinwareUserController {
         return  pinwareUserServices.getCountries();
     }
 
+    @PostMapping("/addCountry")
+    public void addCountry(@RequestBody Country country) {
+        pinwareUserServices.addNewCountry(country);
+    }
+
+    @PutMapping("/updateCountry")
+    public void updateCountry(@RequestBody Country country) {
+        pinwareUserServices.updateCountry(country);
+    }
+
     @PostMapping("/addUser")
     public  void addUser(@RequestBody PinwareUser pinwareUser){
         pinwareUserServices.addNewUser(pinwareUser);
